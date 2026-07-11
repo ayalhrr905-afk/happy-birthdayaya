@@ -5,30 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>عيد ميلاد سعيد يا غالي! 🎉</title>
     <link rel="stylesheet" href="style.css">
-    <!-- مكتبة تأثير تساقط القصاصات الملونة القوية -->
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 </head>
 <body>
 
-    <!-- ⬇️ حاوية جديدة لقصاصات الخلفية المستمرة ⬇️ -->
     <div class="confetti-background" id="confetti-bg"></div>
 
-    <!-- المشهد الأول: المفاجأة الأولى -->
     <div id="first-scene" class="card">
         <img src="ph1.png" alt="صورة مفاجأة" class="surprise-img">
         <h3>مفكر ممكن ننسى عيد ميلادك؟ 😏</h3>
         <button onclick="startCelebration()">اضغط للمفاجأة!</button>
     </div>
 
-    <!-- المشهد الثاني: الاحتفال الحقيقي -->
     <div id="second-scene" class="card hidden">
         <div class="cake">🎂</div>
         <h1>كل عام وأنتِ بخير! ✨</h1>
-        <h2>Happy Birthday! 🎉</h2>
-        <p>اليوم يوم مميز جداً، بتمنالك سنة مليانة سعادة ونجاح وتحقيق كل الأمنيات. هاد الموقع الصغير انعمل خصيصاً عشانك! 💖</p>
+        <h2>Happy Birthday dad 🎉</h2>
+        <p>بابا حبيبي كل عام وانت بالف خير الله يخلينا اياك ويعطيك الصحه بنحبك كتير الحمد الله انو انت موجود بحياتنا ❤️</p>
+        
+        <div id="gift-box" class="gift" onclick="openGift()">
+            🎁 
+            <p style="font-size:12px; color:#7f53ac; margin-top:5px;">اضغط على الهدية لرؤية المفاجأة الثانية!</p>
+        </div>
+        
+        <div id="gift-surprise" class="hidden">
+            <img src="gift-ph.png" alt="هدية مضحكة" class="gift-img">
+            <h3 class="troll-text">لسا بتستنى هدية؟ بكفي وجودي 🌝🎀</h3>
+        </div>
     </div>
 
-    <!-- ملف الصوت -->
     <audio id="birthday-audio" src="birthday-audio.mp3" loop></audio>
 
     <script src="script.js"></script>
