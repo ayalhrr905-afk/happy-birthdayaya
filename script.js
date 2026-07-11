@@ -1,4 +1,3 @@
-// ⬇️ كود جديد تماماً لتشغيل مفرقعات الخلفية المستمرة ⬇️
 window.onload = function() {
     createBackgroundConfetti();
 };
@@ -6,25 +5,21 @@ window.onload = function() {
 function createBackgroundConfetti() {
     var bg = document.getElementById("confetti-bg");
     var colors = ['#d85a7f', '#7f53ac', '#ffd700', '#22d3ee', '#818cf8', '#fb923c'];
-    var pieceCount = 150; // عدد القصاصات في الخلفية
+    var pieceCount = 150;
 
     for (var i = 0; i < pieceCount; i++) {
         var piece = document.createElement("div");
         piece.className = "confetti-piece";
-
-        // خصائص عشوائية لكل قطعة
         piece.style.left = Math.random() * 100 + "vw";
         piece.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
         piece.style.width = Math.random() * 12 + 5 + "px";
         piece.style.height = piece.style.width;
-        piece.style.animationDuration = Math.random() * 5 + 3 + "s"; // سرعات مختلفة
-        piece.style.animationDelay = Math.random() * 5 + "s"; // تأخير مختلف
-
+        piece.style.animationDuration = Math.random() * 5 + 3 + "s";
+        piece.style.animationDelay = Math.random() * 5 + "s";
         bg.appendChild(piece);
     }
 }
 
-// ⬇️ تعديل دالة الاحتفال لتكون "أقوى" بمليون مرة عند الضغط ⬇️
 function startCelebration() {
     var firstScene = document.getElementById("first-scene");
     if (firstScene) firstScene.classList.add("hidden");
@@ -39,18 +34,35 @@ function startCelebration() {
         });
     }
 
-    // 💥 تفجير قصاصات أقوى وأضخم فوق البطاقة 💥
     confetti({
-        particleCount: 300, // عدد ضخم جداً
-        spread: 120, // انتشار واسع
-        origin: { y: 0.5 }, // من وسط الشاشة
-        colors: ['#d85a7f', '#7f53ac', '#ffd700', '#ffffff'], // ألوان قوية
-        scalar: 1.2 // حجم أكبر قليلاً
+        particleCount: 300,
+        spread: 120,
+        origin: { y: 0.5 },
+        colors: ['#d85a7f', '#7f53ac', '#ffd700', '#ffffff'],
+        scalar: 1.2
     });
 
-    // تفجير إضافي من الجوانب لزيادة البهجة
     setTimeout(() => {
         confetti({ particleCount: 50, angle: 60, spread: 55, origin: { x: 0 } });
         confetti({ particleCount: 50, angle: 120, spread: 55, origin: { x: 1 } });
     }, 200);
+}
+
+// دالة فتح الهدية المضحكة
+function openGift() {
+    // 1. إخفاء أيقونة الهدية الكبيرة
+    var giftBox = document.getElementById("gift-box");
+    if (giftBox) giftBox.classList.add("hidden");
+
+    // 2. إظهار حاوية المقلب (الصورة والنص)
+    var giftSurprise = document.getElementById("gift-surprise");
+    if (giftSurprise) giftSurprise.classList.remove("hidden");
+
+    // تفجير ألوان احتفالاً بالصدمة المضحكة
+    confetti({ 
+        particleCount: 80, 
+        spread: 60, 
+        origin: { y: 0.75 },
+        colors: ['#ffd700', '#7f53ac', '#ff69b4']
+    });
 }
